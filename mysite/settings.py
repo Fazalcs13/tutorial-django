@@ -28,7 +28,7 @@ SECRET_KEY = ')ww-agu5ikw59_vj3aiuz_4dr59vozr_!%pubb_5o4))b2x-jm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['techoryze.herokuapp.com']
 
 
 # Application definition
@@ -68,9 +68,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.django.GripManifestStaticFileStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
+
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'static'),
