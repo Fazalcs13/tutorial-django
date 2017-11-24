@@ -28,7 +28,8 @@ SECRET_KEY = ')ww-agu5ikw59_vj3aiuz_4dr59vozr_!%pubb_5o4))b2x-jm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['techoryze.herokuapp.com']
+ALLOWED_HOSTS = ['techoryze.herokuapp.com',
+                 u'127.0.0.1']
 
 
 # Application definition
