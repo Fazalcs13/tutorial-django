@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+
+.height-160px{height:160px;}
+
+.linknorTxt{color:inherit; text-decoration:underline;}
+
+.linknorTxt:hover {
+    color: #88cc00;
+}
+
+.buttonVideoPg{
+	background: #47add3;
+	/*width:40%;*/
+	color:#FFF;
+	border-radius:40px;
+	padding:10px;
+	margin:30px auto 0;
+	text-align:center;
+	cursor:pointer;
+	}
+	
+
+.buttonVideoPg:hover{
+	background: #32c7ff;
+	color:#FFF;
+	}	
+.buttonVideoPg:active{
+	background: #2987ab;
+	color:#FFF;
+	}	
+.line-height35px{line-height: 35px;}
+
+.paddingVideo{padding-bottom: 57% !important;}
+.padding-5percent{padding: 5% !important;}
+
+.paddingVideo2 {
+    padding-bottom: 56.3% !important;
+}
+
+.margin-right20px{margin-right: 20px;}
+.margin-minus160px{margin-top: -150px;}
+
+
+ .borderrigthVideoPG{border-right: 2px dotted #e3e3e3;}	
+ .border-radiusBot{border-radius: 0px 0px 0.5em 0.5em}
+ .borderBioThumb {
+    border: 6px solid #47add3;
+	}
+ .thumb--s {
+    border: 2px solid #47add3;
+}
+ 
+ .bg-colorwhite{background:#FFF;}
+ 
+ 
+ .bm--b {
+    background-image: radial-gradient(circle at 2px 2px, #d7d7d7, #d7d7d7 1.5px, transparent 1.5px);
+    background-size: 8px 4px;
+    background-position: right center;
+    background-repeat: repeat-x;
+}
+
+.bm--b > span {
+    padding-right: 20px;
+    background-color: white;
+}
+
+.bioLinks
+{
+	margin:0;
+	padding:0;
+}
+
+.bioLinks li
+{
+	list-style:none;
+	line-height:45px;
+}
+
+.bioLinks li a i
+{
+	margin-right:10px;
+	font-weight:bold;
+}
+
+.bioLinks li a
+{
+	text-decoration:underline;
+	color:#47add3;
+	
+}
+
+
+.bioLinks li a:hover
+{
+	color:#32c7ff;
+}
+
+
+
+
+
+
+
+
+

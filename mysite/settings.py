@@ -49,8 +49,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -70,14 +68,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+MEDIA_ROOT = os.path.join(DATA_DIR, 'mysite/media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'static'),
 )
 SITE_ID = 1
-
 
 TEMPLATES = [
     {

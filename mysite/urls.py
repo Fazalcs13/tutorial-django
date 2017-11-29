@@ -9,6 +9,7 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.static import serve
+from . import views
 
 admin.autodiscover()
 
@@ -20,6 +21,9 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^', include('cms.urls')),
+    url(r'^logins', views.login_view, name='logins'),
+    url(r'^(?P<course_name>[\w\-]+)/courses', views.courses_view, name='courses'),
+
 )
 
 # This is only needed when using runserver.
