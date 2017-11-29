@@ -49,5 +49,4 @@ def login_view(request):
         request.session['UserID'] = user.id
         return HttpResponseRedirect("/")
     else:
-        raise forms.ValidationError("You have forgotten about Fred!")
         return render(request, template)
