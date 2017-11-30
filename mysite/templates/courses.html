@@ -42,7 +42,11 @@
       </li>
     </ul>
     	<div class="col p-0">
-        	<a href="https://techoryze.herokuapp.com/en/login" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+            {% if request.session.UserID != '' %}
+                <a href="logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign Out</a>
+            {% else %}
+        	<a href="logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+            {% endif %}
         </div>
   </div>
   </div>
@@ -67,46 +71,18 @@
 </div>
 
 <div class="col-12 border-top1px font-familyRobotoRegular colorgray overflow-hidden">
-   <div class="card-deck">
-
+    <div class="card-deck">
     {% for course in courses %}
     {% comment %}<h5>{{ course.course_category }}</h5>{% endcomment %}
-
-        {% comment %}{% if forloop.counter|divisibleby:2 %}
-
-        <div class="row">
-            <div class="card mt-5 col-md-4 col-lg-4 col-sm-12 col-xs-12 p-0">
-  <a href="https://techoryze.herokuapp.com/en/video/">
-
-    <img class="card-img-top" src="https://techoryze.herokuapp.com/media/{{ course.course_thumbanilImage }} " alt="Course image">
-    <div class="card-body">
-      <h5 class="card-title">{{ course.course_title }}</h5>
-      <p class="card-text">{{ course.course_subTitle }}</p>
-       <img src="https://techoryze.herokuapp.com/media/{{ course.course_author_image }}" class="pull-left" width="70">
-       <p class="card-text m-3 pull-left"><small class="text-muted">{{ course.course_author_name }}<br>29 Aug 2017</small></p>
-      <p class="card-text pull-right mt-5"><small class="text-muted">{{ course.course_duration }}</small></p>
-    </div>
-   </a>
-  </div>
-
-       {% endif %}
-
-
-
-       {% if forloop.counter|divisibleby:3 %}
-
-        </div>
-
-       {% endif %}{% endcomment %}
 
         <div class="card mt-5 col-md-4 col-lg-4 col-sm-12 col-xs-12 p-0">
   <a href="https://techoryze.herokuapp.com/en/video/">
 
-    <img class="card-img-top" src="https://techoryze.herokuapp.com/media/{{ course.course_thumbanilImage }} " alt="Course image">
+    <img class="card-img-top" src="https://techoryze.herokuapp.commedia/{{ course.course_thumbnil_Image }} " alt="Course image">
     <div class="card-body">
       <h5 class="card-title">{{ course.course_title }}</h5>
-      <p class="card-text">{{ course.course_subTitle }}</p>
-       <img src="https://techoryze.herokuapp.com/media/{{ course.course_author_image }}" class="pull-left" width="70">
+      <p class="card-text">{{ course.course_detail }}</p>
+       <img src="https://techoryze.herokuapp.commedia/{{ course.course_author_image }}" class="pull-left" width="70">
        <p class="card-text m-3 pull-left"><small class="text-muted">{{ course.course_author_name }}<br>29 Aug 2017</small></p>
       <p class="card-text pull-right mt-5"><small class="text-muted">{{ course.course_duration }}</small></p>
     </div>
@@ -115,8 +91,8 @@
 
         {% if forloop.counter|divisibleby:3 %}
         </div>
-        <div class="row">
-        {% endif %}
+        <div class="card-deck">
+    {% endif %}
 
 
 
@@ -124,7 +100,8 @@
 
     {% endfor %}
 
-    </div>
+
+
 </div>
 
 </div>

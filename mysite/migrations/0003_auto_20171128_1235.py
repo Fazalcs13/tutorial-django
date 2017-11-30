@@ -14,11 +14,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='coursesmodel1',
             name='course_author_image',
-            field=models.ImageField(null=True, upload_to=b'http://127.0.0.1:8000/static/images', blank=True),
+            field=models.ImageField(null=True, upload_to=b'https://techoryze.herokuapp.comstatic/images', blank=True),
         ),
         migrations.AlterField(
             model_name='coursesmodel1',
             name='course_thumbanilImage',
-            field=models.ImageField(null=True, upload_to=b'http://127.0.0.1:8000/static/images', blank=True),
+            field=models.ImageField(null=True, upload_to=b'https://techoryze.herokuapp.comstatic/images', blank=True),
         ),
     ]

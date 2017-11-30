@@ -1,3 +1,4 @@
+{% load define_action %}
 <!doctype html>
 <html>
 <head>
@@ -41,8 +42,13 @@
         <a class="nav-link transition" href="#">About Us</a>
       </li>
     </ul>
+
     	<div class="col p-0">
-        	<a href="login" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+            {% if request.session.UserID != '' %}
+                <a href="logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign Out</a>
+            {% else %}
+        	<a href="logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+            {% endif %}
         </div>
   </div>
   </div>
@@ -72,76 +78,66 @@
 <h3 class="font-familyRaleway colorgray text-center p-4 m-0">What do you want to learn?</h3>
 
 <div class="col-12 border-top1px p-0 font-familyRobotoRegular colorgray overflow-hidden">
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
+    {% for courseTopic in coursesTopic %}
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
 <div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon1.png" width="129" class="d-block m-auto">
-<h5 class="colorBlue mt-4">Microsoft Office Suite</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
+<img src="https://techoryze.herokuapp.commedia/{{ courseTopic.course_thumbnil_Image }}" width="129" class="d-block m-auto">
+<h5 class="{{ courseTopic.background_color }}">{{ courseTopic.course_title }}</h5>
+<p>{{ courseTopic.course_detail }}</p>
 <div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-darkBlue colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
+    {% if courseTopic.background_color == 'colorBlue mt-4' %}
+        {% define "d-block btn btn-darkBlue colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+
+    {% endif %}
+
+    {% if courseTopic.background_color == 'colorGreen mt-4' %}
+        {% define "d-block btn btn-darkGreen colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+    {% endif %}
+
+    {% if courseTopic.background_color == 'colorparpup mt-4' %}
+        {% define "d-block btn btn-darkParpol colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+    {% endif %}
+
+    {% if courseTopic.background_color == 'colorOrange mt-4' %}
+        {% define "d-block btn btn-dark colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+    {% endif %}
+
+    {% if courseTopic.background_color == 'colorpink mt-4' %}
+        {% define "d-block btn btn-darkPink colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+    {% endif %}
+
+    {% if courseTopic.background_color == 'colorbrown mt-4' %}
+        {% define "d-block btn btn-darkBrown colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px" as hoverclass  %}
+        {% define  courseTopic.course_title|addstr:"/courses" as url %}
+        <a href="{{ url|to_underscore }}" class="{{ hoverclass }}">View Courses</a>
+    {% endif %}
+
 </div>
 </div>
 </div>
 
+        {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="col-12 border-top1px p-0 font-familyRobotoRegular colorgray overflow-hidden">
 
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
-<div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon2.png" width="130" class="d-block m-auto">
-<h5 class="colorGreen mt-4">Graphic Design</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
-<div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-darkGreen colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
-</div>
-</div>
-</div>
+        {% endif %}
 
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
-<div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon3.png" width="123" class="d-block m-auto">
-<h5 class="colorparpup mt-4">Sound & Music</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
-<div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-darkParpol colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-12 p-0 font-familyRobotoRegular colorgray overflow-hidden">
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
-<div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon4.png" width="118" class="d-block m-auto">
-<h5 class="colorOrange mt-4">Web Site Development</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
-<div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-dark colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
-</div>
-</div>
-</div>
+    {% endfor %}
 
 
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
-<div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon5.png" width="130" class="d-block m-auto">
-<h5 class="colorpink mt-4">Animation Production</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
-<div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-darkPink colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
-</div>
-</div>
+
 </div>
 
-<div class="col-lg-4 col-md-12 col-sm-12 col-12 pull-left mt-5">
-<div class="col-12 bg-colorWhite border-box1px text-center p-5">
-<img src="https://techoryze.herokuapp.com/static/images/icon/icon6.png" width="130" class="d-block m-auto">
-<h5 class="colorbrown mt-4">Video Editing</h5>
-<p>Lorem Ipsum is simply dummy and typesetting industry.</p>
-<div class="col p-0 mt-4">
-    <a href="course" class="d-block btn btn-darkBrown colorOrange col-lg-8 col-md-4 col-sm-8 col-12 m-auto font-size14px">View Courses</a>
-</div>
-</div>
-</div>
-</div>
 
 </div>
 </div>

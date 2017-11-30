@@ -20,8 +20,10 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
-    url(r'^', include('cms.urls')),
+    #url(r'^', include('cms.urls')),
+    url(r'^$', views.coursesTopic_view, name='index'),
     url(r'^logins', views.login_view, name='logins'),
+    url(r'^logout', views.logout_view, name='logout'),
     url(r'^(?P<course_name>[\w\-]+)/courses', views.courses_view, name='courses'),
 
 )
