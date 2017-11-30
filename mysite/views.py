@@ -64,5 +64,5 @@ def login_view(request):
 def logout_view(request):
     template = 'login.html'
     # A backend authenticated the credentials
-    del request.session['UserID']
-    return render(request, template)
+    request.session.flush()
+    return HttpResponseRedirect("/logout")
