@@ -43,9 +43,9 @@
     </ul>
     	<div class="col p-0">
             {% if request.user.is_authenticated %}
-                <a href="https://techoryze.herokuapp.com/logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign Out</a>
+                <a href="\logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign Out</a>
             {% else %}
-        	<a href="logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+        	<a href="\logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
             {% endif %}
         </div>
   </div>
