@@ -1,15 +1,10 @@
 {% load static %}
-
-{% block content %}
-
-
-
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>.::Techoryze | Sign In::.</title>
+<title>.::Techoryze | Create a New Account::.</title>
 <link rel="icon" href="https://techoryze.herokuapp.com/static/images/logo/favicon.png" type="images/logo/favicon.png" />
 <link href="https://techoryze.herokuapp.com/static/css/style.css" rel="stylesheet" type="text/css">
 <script src="https://techoryze.herokuapp.com/static/js/jquery.js"></script>
@@ -48,7 +43,7 @@
       </li>
     </ul>
     	<div class="col p-0">
-        	<a href="#" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+        	<a href="https://techoryze.herokuapp.com/en/logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
         </div>
   </div>
   </div>
@@ -64,32 +59,46 @@
 <section class="overflow-hidden">
 <div class="container">
 <div class="row">
+
 <div class="col-12 p-0 font-familyRobotoRegular colorgray overflow-hidden">
-<div class="col-lg-4 col-md-6 col-sm-8 col-12 m-auto">
+<div class="col-lg-5 col-md-7 col-sm-9 col-12 m-auto">
 <div class="col-12 bg-colorWhite border-box1px pb-4 mt-5">
-<h5 class="colorGreen font-familyRaleway mt-4 text-center">Sign in to Your Account</h5>
-<p class="mt-3 text-center font-size12px">Don`t have an account? <a href="createnewAccount" class="">Create one.</a></p>
+<h5 class="colorGreen font-familyRaleway mt-4 text-center">Create a New Account</h5>
 <div class="col-10 m-auto p-0 mt-4">
 <form method="post">
     {% csrf_token %}
-  <div class="form-group">
-    <label for="emaillAddLogin">Email address</label>
-    <input type="text" autocomplete="off" class="form-control" name="username" id="emaillAddLogin" aria-describedby="Email address" placeholder="Enter email">
+  <div class="form-group mt-3">
+    <label for="Email address">Email address</label>
+    <input type="email" name="email" class="form-control" id="Email address" aria-describedby="Emailaddress" placeholder="Enter email">
   </div>
-
+  <div class="row  mb-3">
+    <div class="col">
+    	<label for="First Name">First Name</label>
+      <input type="text" name="first_name" class="form-control" id="firstName" placeholder="First name">
+    </div>
+    <div class="col">
+   		 <label for="First Name">Last Name</label>
+      <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Last name">
+    </div>
+  </div>
   <div class="form-group">
-    <label for="passwordLogin">Password</label>
-    <input type="password" autocomplete="off" name="password" class="form-control" id="passwordLogin" placeholder="Password">
+    <label for="CreatePassword">Create a Password</label>
+    <input type="password" name="password" class="form-control" id="CreatePassword" placeholder="Create a Password">
+  </div>
+  <div class="form-group">
+    <label for="ConfirmPassword">Confirm Password</label>
+    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
   </div>
 
     <div class="col p-0 mt-3">
-    <input type="submit" value="submit" class="d-block btn btn-dark colorOrange col-lg-12 col-md-12 col-sm-12 col-12 m-auto font-size14px font-familyOpenSans"/>
+    <input type="submit" value="Create Account" class="d-block btn btn-dark colorOrange col-lg-12 col-md-12 col-sm-12 col-12 m-auto font-size14px font-familyOpenSans"/>
 </div>
+</form> 
+ 
 
-</form>
 
 
-<a href="forgotPassword" class="text-center d-block mt-3 font-size12px">Forgot your password?</a>
+<p class="mt-3 text-center font-size12px">Already have an account? <a href="https://techoryze.herokuapp.com/en/logins">Sign in.</a></div>
 </div>
 
 </div>
@@ -109,7 +118,7 @@
 <div class="container">
 <div class="col border-top1px mt-5">
 <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-0 pull-left mt-4">
-<a href="index.html"><img src="https://techoryze.herokuapp.com/static/images/logo/logo.png" width="135" class=""></a>
+<a href="https://techoryze.herokuapp.com/en/login"><img src="https://techoryze.herokuapp.com/static/images/logo/logo.png" width="135" class=""></a>
 <p class="pt-2">Lorem Ipsum is simply dummy text of the
 printing and typesetting industry. Lorem
 Ipsum has been the industry's standard
@@ -171,5 +180,3 @@ dummy text.</p>
 <script src="https://techoryze.herokuapp.com/static/js/bootstrap.js"></script>
 </body>
 </html>
-
-{% endblock %}

@@ -24,7 +24,11 @@ urlpatterns += i18n_patterns(
     url(r'^$', views.coursesTopic_view, name='index'),
     url(r'^logins', views.login_view, name='logins'),
     url(r'^logout', views.logout_view, name='logout'),
+    url(r'^createnewAccount', views.createAccount_view, name='createnewAccount'),
+    url(r'^forgotPassword', views.forgotPassword_view, name='forgotPassword'),
+    url(r'^resetPassword', views.resetPassword_view, name='resetPassword'),
     url(r'^(?P<course_name>[\w\-]+)/courses', views.courses_view, name='courses'),
+    url(r'^(?P<course_name>[\w\-]+)/video', views.video_view, name='video'),
 
 )
 

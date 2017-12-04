@@ -105,6 +105,8 @@ TEMPLATES = [
 ]
 
 
+
+
 MIDDLEWARE_CLASSES = (
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -150,6 +152,13 @@ INSTALLED_APPS = (
     'djangocms_video',
     'mysite'
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'fazalcs13@gmail.com'
+EMAIL_HOST_PASSWORD = 'ewdizaqqcfpuqsji'
+EMAIL_USE_TLS = True
 
 LANGUAGES = (
     ## Customize this
