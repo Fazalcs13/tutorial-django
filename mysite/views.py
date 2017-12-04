@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, render
 from .models import User, CoursesModel1, CoursesTopic
 from django.contrib.auth import authenticate
+from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
@@ -13,7 +14,7 @@ def coursesTopic_view(request):
 
 
 def courses_view(request, course_name):
-    if request.session.get('UserID') is not None:
+    if request.user.is_authenticated():
 
         template = 'courses.html'
         if course_name == u'Microsoft_Office_Suite':
@@ -54,15 +55,12 @@ def login_view(request):
     template = 'login.html'
     if user is not None:
         # A backend authenticated the credentials
-        request.session['UserID'] = user.id
-        template = 'index.html'
-        context = RequestContext(request)
+        auth.login(request, user)
         return HttpResponseRedirect("/")
     else:
         return render(request, template)
 
 def logout_view(request):
-    template = 'login.html'
     # A backend authenticated the credentials
-    request.session.flush()
-    return HttpResponseRedirect("/logout")
+    auth.logout(request)
+    return HttpResponseRedirect("logins")
