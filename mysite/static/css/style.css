@@ -383,3 +383,15 @@
 .userInfoText{position: absolute; bottom: 0px; left: 83px;}
 .userImg{position: absolute; bottom: 8px;}
 .courseDuration{ position: absolute; right: 15px; bottom: 16px;}
+
+.timetext{    position: absolute;
+    bottom: 0;
+    right: 20px;}
+
+.courseTitle{   overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    left: 0;}
+
+.paddingBotTitalTxt{padding-bottom: 60px;}
+.mar-b-30{    margin-bottom: 30px;}

@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>.::Techoryze | Courses::.</title>
+    {% comment %}http://127.0.0.1:8000{% endcomment %}
 <link rel="icon" href="https://techoryze.herokuapp.com/static/images/logo/favicon.png" type="images/logo/favicon.png" />
 <link href="https://techoryze.herokuapp.com/static/css/style.css" rel="stylesheet" type="text/css">
 <script src="https://techoryze.herokuapp.com/static/js/jquery.js"></script>
@@ -124,11 +125,13 @@
 
     <img class="card-img-top" src="https://techoryze.herokuapp.com/media/{{ course.course_thumbnil_Image }} " alt="Course image">
     <div class="card-body">
-      <h5 class="card-title">{{ course.course_title }}</h5>
-      <p class="card-text">{{ course.course_detail }}</p>
-       <img src="https://techoryze.herokuapp.com/media/{{ course.course_author_image }}" class="pull-left userImg" width="70">
-       <p class="card-text m-3 pull-left userInfoText"><small class="text-muted">{{ course.course_author_name }}<br>29 Aug 2017</small></p>
+        <h5 class="card-title">{{ course.course_title }}</h5>
+      <p class="card-text paddingBotTitalTxt">{{ course.course_detail }}</p>
+        <div class="col-12 courseTitle">
+       <img src="https://techoryze.herokuapp.com/media/{{ course.course_author_image }}" class="pull-left" width="70">
+       <p class="card-text m-3 pull-left"><small class="text-muted">{{ course.course_author_name }}<br>29 Aug 2017</small></p>
       <p class="card-text pull-right mt-5"><small class="text-muted">{{ course.course_duration }}</small></p>
+        </div>
     </div>
    </a>
   </div>
