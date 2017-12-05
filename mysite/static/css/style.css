@@ -379,3 +379,6 @@
 		padding:0;
 	}
 }
+
+.userInfoText{position: absolute; bottom: 0px; left: 83px;}
+.userImg{position: absolute; bottom: 8px;}
