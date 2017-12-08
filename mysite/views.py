@@ -14,10 +14,8 @@ from django.views.generic.base import TemplateView
 def coursesTopic_view(request):
         template = 'index.html'
         coursesTopic = CoursesTopic.objects.all()
-        if request.user.is_authenticated():
-            username = request.user.first_name
-            context = {'coursesTopic': coursesTopic}
-            return render(request, template, context)
+        context = {'coursesTopic': coursesTopic}
+        return render(request, template, context)
 
 def courses_view(request, course_name):
     if request.user.is_authenticated():
