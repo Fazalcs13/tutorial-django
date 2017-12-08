@@ -18,8 +18,6 @@ def coursesTopic_view(request):
             username = request.user.first_name
             context = {'coursesTopic': coursesTopic}
             return render(request, template, context)
-        else:
-            return render(request, template)
 
 def courses_view(request, course_name):
     if request.user.is_authenticated():
