@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>.::Techoryze::.</title>
 <link rel="icon" href="https://techoryze.herokuapp.com/static/images/logo/favicon.png" type="images/logo/favicon.png" />
-<link href="https://techoryze.herokuapp.com:8000/static/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://techoryze.herokuapp.com/static/css/style.css" rel="stylesheet" type="text/css">
 <script src="https://techoryze.herokuapp.com/static/js/jquery.js"></script>
-<script src="https://techoryze.herokuapp.com:8000/static/js/webjs.js"></script>
+<script src="https://techoryze.herokuapp.com/static/js/webjs.js"></script>
 
 <style>
 
@@ -84,7 +84,7 @@
         <div class="col p-0">
             {% if request.user.is_authenticated %}
                 {% define username as user %}
-                <a onclick="PopupCenter('https://techoryze.herokuapp.com:8000/en/chatterbot/','Chat Window',450,500)" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-5 col-md-12 col-sm-12 col-12">Chat</a>
+                <a onclick="PopupCenter('https://techoryze.herokuapp.com/en/chatterbot/','Chat Window',450,500)" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-5 col-md-12 col-sm-12 col-12">Chat</a>
             {% endif %}
         </div>
 
