@@ -52,16 +52,20 @@ def courses_view(request, course_name):
             return HttpResponseRedirect("/logins")
 
 def login_view(request):
-    username = request.POST.get("username", "")
-    password = request.POST.get("password", "")
-
-    user = authenticate(username=username, password=password)
     template = 'login.html'
-    if user is not None:
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
         # A backend authenticated the credentials
-        auth.login(request, user)
-        messages.success(request, "Logged in successfully")
-        return HttpResponseRedirect("/")
+            auth.login(request, user)
+            messages.success(request, "Logged in successfully")
+            return HttpResponseRedirect("/")
+        else:
+            return render(request, template)
     else:
         return render(request, template)
 
