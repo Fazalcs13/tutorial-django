@@ -9,7 +9,10 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.static import serve
+from mysite.views import ChatterBotAppView
+
 from . import views
+from chatterbot.ext.django_chatterbot import urls as chatterbot_urls
 
 admin.autodiscover()
 
@@ -28,7 +31,9 @@ urlpatterns += i18n_patterns(
     url(r'^forgotPassword', views.forgotPassword_view, name='forgotPassword'),
     url(r'^resetPassword', views.resetPassword_view, name='resetPassword'),
     url(r'^(?P<course_name>[\w\-]+)/courses', views.courses_view, name='courses'),
-    url(r'^(?P<course_name>[\w\-]+)/video', views.video_view, name='video'),
+    url(r'^(?P<course_name>[\w\-]+)/video/', views.video_view, name='video'),
+    url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
+    url(r'^chatterbot/', views.ChatterBotAppView, name='chatterbot'),
 
 )
 

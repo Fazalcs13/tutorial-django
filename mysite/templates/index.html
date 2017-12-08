@@ -6,9 +6,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>.::Techoryze::.</title>
 <link rel="icon" href="https://techoryze.herokuapp.com/static/images/logo/favicon.png" type="images/logo/favicon.png" />
-<link href="https://techoryze.herokuapp.com/static/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://techoryze.herokuapp.com:8000/static/css/style.css" rel="stylesheet" type="text/css">
 <script src="https://techoryze.herokuapp.com/static/js/jquery.js"></script>
-<script src="https://techoryze.herokuapp.com/static/js/webjs.js"></script>
+<script src="https://techoryze.herokuapp.com:8000/static/js/webjs.js"></script>
+
+<style>
+
+    .chatclass{
+        position: absolute;
+        float: right;
+        width: 300px;
+        height: 312px;
+        background-color: #e0e0de;
+        padding: 16px;
+        overflow: scroll;
+        bottom: 56px;
+            right: 113px;
+
+    }
+
+            .senderdiv{
+                float: left;
+                width: 200px;
+                border-radius: 5px;
+                border: 1px solid #73AD21;
+                padding: 10px;
+                background-color: #ffffff;
+            }
+
+            .reciverdiv{
+                margin-top: 8px;
+                float: right;
+                width: 200px;
+                border-radius: 5px;
+                border: 1px solid #73AD21;
+                padding: 10px;
+                background-color: #ffffff;
+            }
+
+
+
+</style>
 
 </head>
 
@@ -43,11 +81,19 @@
       </li>
     </ul>
 
+        <div class="col p-0">
+            {% if request.user.is_authenticated %}
+                {% define username as user %}
+                <a onclick="PopupCenter('https://techoryze.herokuapp.com:8000/en/chatterbot/','Chat Window',450,500)" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-5 col-md-12 col-sm-12 col-12">Chat</a>
+            {% endif %}
+        </div>
+
     	<div class="col p-0">
             {% if request.user.is_authenticated %}
-                <a href="logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign Out</a>
+                {% define username as user %}
+                <a href="logout" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-7 col-md-12 col-sm-12 col-12">Sign Out</a>
             {% else %}
-        	<a href="logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-3 col-md-12 col-sm-12 col-12">Sign In</a>
+        	<a href="logins" class="d-block pull-right btn btn-dark colorOrange font-weight-bold col-lg-7 col-md-12 col-sm-12 col-12">Sign In</a>
             {% endif %}
         </div>
   </div>
@@ -146,7 +192,7 @@
 <!--END SECTION-->
 
 <!--START FOOTER-->
-<footer class="overflow-hidden">
+<footer class="overflow-hidden" style="position: relative;">
 <div class="container">
 <div class="col border-top1px mt-5">
 <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-0 pull-left mt-4">
@@ -202,6 +248,8 @@ dummy text.</p>
 </div>
 
 </div>
+
+
 </footer>
 <!--END FOOTER-->
 
@@ -210,5 +258,27 @@ dummy text.</p>
 <script src="https://techoryze.herokuapp.com/static/js/slim.min.js"></script>
 <script src="https://techoryze.herokuapp.com/static/js/popper.min.js"></script>
 <script src="https://techoryze.herokuapp.com/static/js/bootstrap.js"></script>
+<script src="https://techoryze.herokuapp.com:8000/static/js/js.cookie.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+      function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+        newWindow.focus();
+    }
+}
+    </script>
 </body>
 </html>

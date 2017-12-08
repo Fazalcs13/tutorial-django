@@ -120,7 +120,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 INSTALLED_APPS = (
@@ -150,8 +150,21 @@ INSTALLED_APPS = (
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
-    'mysite'
+
+    'chatterbot.ext.django_chatterbot',
+    'mysite',
 )
+
+CHATTERBOT = {
+    'name': 'Django ChatterBot Example',
+    'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
+    'training_data': [
+        'chatterbot.corpus.english.greetings',
+        #'chatterbot.corpus.english.conversations',
+        'chatterbot.corpus.english.JohnPowers'
+    ],
+    'django_app_name': 'django_chatterbot'
+}
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

@@ -7,12 +7,19 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
 from django.core.mail import EmailMessage
+from django.views.generic.base import TemplateView
+
+
 
 def coursesTopic_view(request):
         template = 'index.html'
         coursesTopic = CoursesTopic.objects.all()
-        context = {'coursesTopic': coursesTopic}
-        return render(request, template, context)
+        if request.user.is_authenticated():
+            username = request.user.first_name
+            context = {'coursesTopic': coursesTopic}
+            return render(request, template, context)
+        else:
+            return render(request, template)
 
 def courses_view(request, course_name):
     if request.user.is_authenticated():
@@ -124,5 +131,13 @@ def resetPassword_view(request):
             return render(request, template)
 
     return render(request, template)
+
+def ChatterBotAppView(request):
+    template = "chatterbot.html"
+    if request.user.is_authenticated():
+        username = request.user.first_name
+        context = {'username': username}
+        return render(request, template, context)
+
 
 
