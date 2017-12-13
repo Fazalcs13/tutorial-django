@@ -9,8 +9,6 @@ from django import forms
 from django.core.mail import EmailMessage
 from django.views.generic.base import TemplateView
 
-
-
 def coursesTopic_view(request):
         template = 'index.html'
         coursesTopic = CoursesTopic.objects.all()
@@ -74,9 +72,11 @@ def logout_view(request):
     auth.logout(request)
     return HttpResponseRedirect("logins")
 
-def video_view(request, course_name):
+def video_view(request, course_name, course_id):
     template = 'video.html'
-    return render(request, template)
+    courses = AddCourses.objects.filter(pk=course_id)
+    context = {'courses': courses}
+    return render(request, template, context)
 
 def createAccount_view(request):
     template = 'createnewAccount.html'

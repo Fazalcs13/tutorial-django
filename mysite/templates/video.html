@@ -63,83 +63,118 @@
 <div class="container">
 <div class="row">
 <div class="col-12">
-<p class="font-size12px mt-4 m-0 pl-3">WEB SITE DEVELOPMENT > <span class="colorOrange">MOS: COURSE 1</span></p>
-<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-<ul class="videoHedings p-0 m-0 mt-4 mb-4">
-<li class="colorgray"><h4 class="m-0">MOS: Course 1</h4></li>
-</ul>
-</div>
+    {% for course in courses %}
+        {% if course.course_category == 'MOS' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Microsoft Office Suite > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-<div class="col-12 border-top1px font-size12px pt-2 pb-2 overflow-hidden">
-<p class="pull-left m-0"><b>by John Doe</b> 29Aug2017</p>
-<p class="pull-right m-0">Lessons: <b>10</b> Duration: <b>3.5 Hours</b></p>
-</div>
+        {% if course.course_category == 'GD' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Graphic Design > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-<div class="col-lg-12 col-md-12 col-sm-12 col-12 border-top1px p-0 overflow-hidden">
-<div class="col-lg-8 col-md-8 col-sm-12 col-12 pull-left mt-5">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+        {% if course.course_category == 'SM' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Sound & Music > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-<video class="col p-0" controls poster="https://techoryze.herokuapp.com/static/images/bg/poster.png" preload="auto">
-   <source src="https://techoryze.herokuapp.com/media/cds.mp4" type="video/mp4">
-</video>
+        {% if course.course_category == 'WD' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Web Site Development > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-</div>
-</div>
+        {% if course.course_category == 'AP' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Animation Production > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-<div class="col-lg-4 col-md-4 col-sm-12 col-12 pull-left mt-5">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12 border-dashed1px text-center padding-topBot">
-<h5 class="colorgray">MOS: COURSE 1</h5>
-<p class="font-size13px pt-5">Lessons: 12<br>Duration: 3.5 Hours</p>
-<div class="col p-0 mt-5">
-    <a href="https://techoryze.herokuapp.com/en/coursesvideo" class="d-block btn btn-dark colorOrange col-lg-6 col-md-8 col-sm-8 col-12 m-auto font-size14px">Start Course</a>
-</div>
+        {% if course.course_category == 'VE' %}
+            <p class="font-size12px mt-4 m-0 pl-3">Video Editing > <span class="colorOrange">{{ course.course_title }}</span></p>
+        {% endif %}
 
-</div>
-</div>
-</div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <ul class="videoHedings p-0 m-0 mt-4 mb-4">
+        <li class="colorgray"><h4 class="m-0">{{ course.course_title }}</h4></li>
+        </ul>
+        </div>
+
+        <div class="col-12 border-top1px font-size12px pt-2 pb-2 overflow-hidden">
+        <p class="pull-left m-0"><b>by {{ course.course_author_name }}</b> {{ course.course_date }}</p>
+        <p class="pull-right m-0">Lessons: <b>10</b> Duration: <b>{{ course.course_duration }}</b></p>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 border-top1px p-0 overflow-hidden">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12 pull-left mt-5">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+
+        <video class="col p-0" controls poster="https://techoryze.herokuapp.com/static/images/bg/poster.png" preload="auto">
+            <source src="https://techoryze.herokuapp.com/media/cds.mp4" type="video/mp4">
+        </video>
+
+        </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12 pull-left mt-5">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 border-dashed1px text-center padding-topBot">
+        <h5 class="colorgray">{{ course.course_title }}</h5>
+        <p class="font-size13px pt-5">Lessons: 12<br>Duration: {{ course.course_duration }}</p>
+        <div class="col p-0 mt-5">
+            <a href="https://techoryze.herokuapp.com/en/coursesvideo" class="d-block btn btn-dark colorOrange col-lg-6 col-md-8 col-sm-8 col-12 m-auto font-size14px">Start Course</a>
+        </div>
+
+        </div>
+        </div>
+        </div>
+
+        <div class="col-12 border-top1px font-size12px pt-2 pb-2 mt-5 overflow-hidden">
+        <h5>Course Details</h5>
+        <p class="m-0">{{ course.course_detail }}</p>
+        </div>
+
+        <div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
+        <h5 class="colorgray">Course Outline</h5>
+        </div>
+
+        <div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
+        <h5 class="colorgray">What You’ll Learn</h5>
+        </div>
+
+        <div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
+        <h5 class="colorgray">Course Prerequisites</h5>
+        <ul class="pl-3 line-height25px bullits">
+        <li>Platform: Windows or Mac</li>
+        <li>Software: No software needed!</li>
+        <li>Required Skills: N/A</li>
+        <li>Previous Courses: N/A</li>
+        </ul>
+        </div>
 
 
-<div class="col-12 border-top1px font-size12px pt-2 pb-2 mt-5 overflow-hidden">
-<h5>Course Details</h5>
-<p class="m-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,
-or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-there isn't anything embarrassing hidden in the middle of text.</p>
-</div>
-
-<div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
-<h5 class="colorgray">Course Outline</h5>
-</div>
-
-<div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
-<h5 class="colorgray">What You’ll Learn</h5>
-</div>
-
-<div class="col-12 border-top1px font-size12px pt-3 pb-2 mt-3 overflow-hidden">
-<h5 class="colorgray">Course Prerequisites</h5>
-<ul class="pl-3 line-height25px bullits">
-<li>Platform: Windows or Mac</li>
-<li>Software: No software needed!</li>
-<li>Required Skills: N/A</li>
-<li>Previous Courses: N/A</li>
-</ul>
-</div>
-
-
-<div class="col-12 border-top1px font-size12px pt-3 pb-2 overflow-hidden">
-<h5 class="colorgray mb-3">Your Instructor</h5>
-<img src="https://techoryze.herokuapp.com/static/images/icon/instructorIcon1.png" class="pull-left mt-3 mr-3" width="100">
-<h5 class="colorGreen">John Doe</h5>
-<p>MOS Course Editor | Techoryze</p>
-<p class="col-lg-6 col-md-6 col-sm-12 col-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley.</p>
-</div>
+        <div class="col-12 border-top1px font-size12px pt-3 pb-2 overflow-hidden">
+        <h5 class="colorgray mb-3">Your Instructor</h5>
+        <img src="https://techoryze.herokuapp.com/media/images/icon/instructorIcon1.png" class="pull-left mt-3 mr-3" width="100">
+        <h5 class="colorGreen">{{ course.course_author_name }}</h5>
+        <p>MOS Course Editor | Techoryze</p>
+        <p class="col-lg-6 col-md-6 col-sm-12 col-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley.</p>
+        </div>
 
 
 
-</div>
-</div>
-</div>
+        </div>
+        </div>
+        </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <!--END SECTION-->
 

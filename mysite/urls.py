@@ -31,7 +31,7 @@ urlpatterns += i18n_patterns(
     url(r'^forgotPassword', views.forgotPassword_view, name='forgotPassword'),
     url(r'^resetPassword', views.resetPassword_view, name='resetPassword'),
     url(r'^(?P<course_name>[\w\-]+)/courses', views.courses_view, name='courses'),
-    url(r'^(?P<course_name>[\w\-]+)/video/', views.video_view, name='video'),
+    url(r'^(?P<course_name>[\w\-]+)/(?P<course_id>[\w\-]+)/video/', views.video_view, name='video'),
     url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
     url(r'^chatterbot/', views.ChatterBotAppView, name='chatterbot'),
 
