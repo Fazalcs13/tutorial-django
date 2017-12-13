@@ -2,10 +2,10 @@
 /* CSS Document */
 
 
-@import url("https://techoryze.herokuapp.com/static/css/bootstrap.css");
-@import url("https://techoryze.herokuapp.com/static/css/animate.css");
-@import url("https://techoryze.herokuapp.com/static/fonts/fontStyle.css");
-@import url("https://techoryze.herokuapp.com/static/css/font-awesome.css");
+@import url("http://127.0.0.1:8000/static/css/bootstrap.css");
+@import url("http://127.0.0.1:8000/static/css/animate.css");
+@import url("http://127.0.0.1:8000/static/fonts/fontStyle.css");
+@import url("http://127.0.0.1:8000/static/css/font-awesome.css");
 
 
 
@@ -193,6 +193,7 @@
 }
 .courseHedings li:after
 {
+	/*
 	content: '6 Courses';
     position: absolute;
     top: 12px;
@@ -202,7 +203,7 @@
     font-family: 'Roboto-Regular';
     left: 360px;
     font-size: 10px;
-    border-radius: 10px;
+    border-radius: 10px;*/
 }
 
 
@@ -395,4 +396,16 @@
 
 .paddingBotTitalTxt{padding-bottom: 60px;}
 .mar-b-30{    margin-bottom: 30px;}
+
+.coursecount{
+    position: absolute;
+    top: 12px;
+    background: #ebeced;
+    padding: 2px 15px;
+    color: #939598;
+    font-family: 'Roboto-Regular';
+    left: 360px;
+    font-size: 10px;
+    border-radius: 10px;
+}
 

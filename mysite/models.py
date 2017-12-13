@@ -11,7 +11,10 @@ class CreateUser(models.Model):
     def __str__(self):
         return  self.First_name
 
-class AddCourses(models.Model):
+class Courses(models.Model):
+    class Meta:
+        verbose_name = 'Add Courses'
+        verbose_name_plural = 'Add Courses'
 
     MICROSOFT = 'MOS'
     GRAPHIC = 'GD'
@@ -43,6 +46,11 @@ class AddCourses(models.Model):
         return self.course_title
 
 class CoursesTopic(models.Model):
+
+    class Meta:
+        verbose_name = 'Course Topics'
+        verbose_name_plural = 'Course Topics'
+
     BLUE = 'colorBlue mt-4'
     GREEN = 'colorGreen mt-4'
     PARPUL = 'colorparpup mt-4'

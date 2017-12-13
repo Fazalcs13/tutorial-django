@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response, render
-from .models import CreateUser, AddCourses, CoursesTopic
+from .models import CreateUser, Courses, CoursesTopic
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth, messages
@@ -20,27 +20,27 @@ def courses_view(request, course_name):
 
         template = 'courses.html'
         if course_name == u'Microsoft_Office_Suite':
-            courses = AddCourses.objects.filter(course_category='MOS')
+            courses = Courses.objects.filter(course_category='MOS')
             context = {'courses': courses}
             return render(request, template, context)
         elif course_name == u'Graphic_Design':
-            courses = AddCourses.objects.filter(course_category='GD')
+            courses = Courses.objects.filter(course_category='GD')
             context = {'courses': courses}
             return render(request, template, context)
         elif course_name == u'Sound_Music':
-            courses = AddCourses.objects.filter(course_category='SM')
+            courses = Courses.objects.filter(course_category='SM')
             context = {'courses': courses}
             return render(request, template, context)
         elif course_name == u'Web_Site_Development':
-            courses = AddCourses.objects.filter(course_category='WD')
+            courses = Courses.objects.filter(course_category='WD')
             context = {'courses': courses}
             return render(request, template, context)
         elif course_name == u'Animation_Production':
-            courses = AddCourses.objects.filter(course_category='AP')
+            courses = Courses.objects.filter(course_category='AP')
             context = {'courses': courses}
             return render(request, template, context)
         elif course_name == u'Video_Editing':
-            courses = AddCourses.objects.filter(course_category='VE')
+            courses = Courses.objects.filter(course_category='VE')
             context = {'courses': courses}
             return render(request, template, context)
 
@@ -74,7 +74,7 @@ def logout_view(request):
 
 def video_view(request, course_name, course_id):
     template = 'video.html'
-    courses = AddCourses.objects.filter(pk=course_id)
+    courses = Courses.objects.filter(pk=course_id)
     context = {'courses': courses}
     return render(request, template, context)
 
@@ -107,7 +107,7 @@ def forgotPassword_view(request):
             request.session['email'] = email
             subject, from_email, to = 'Password Reset', 'noreply@techoryze.com', email
 
-            msg = EmailMessage(subject, "Hi,You can reset your password from the link. https://techoryze.herokuapp.com/resetPassword", from_email, [to])
+            msg = EmailMessage(subject, "Hi,You can reset your password from the link. http://127.0.0.1:8000/resetPassword", from_email, [to])
             msg.send()
             return HttpResponseRedirect("logins")
 

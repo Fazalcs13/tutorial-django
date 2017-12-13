@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>.::Techoryze | Videos::.</title>
-<link rel="icon" href="https://techoryze.herokuapp.com/static/images/logo/favicon.png" type="images/logo/favicon.png" />
-<link href="https://techoryze.herokuapp.com/static/css/style.css" rel="stylesheet" type="text/css">
-<script src="https://techoryze.herokuapp.com/static/js/jquery.js"></script>
-<script src="https://techoryze.herokuapp.com/static/js/webjs.js"></script>
+<link rel="icon" href="http://127.0.0.1:8000/static/images/logo/favicon.png" type="images/logo/favicon.png" />
+<link href="http://127.0.0.1:8000/static/css/style.css" rel="stylesheet" type="text/css">
+<script src="http://127.0.0.1:8000/static/js/jquery.js"></script>
+<script src="http://127.0.0.1:8000/static/js/webjs.js"></script>
 
 </head>
 
@@ -20,7 +20,7 @@
 <!--START NAVBAR-->
 <nav class="col navbar navbar-expand-lg navbar-light d-block font-size14px p-0">
   <div class="col-lg-2 col-md-3 col-sm-4 col-7 p-0 pull-left mt-1">
-<a href="/" class="d-block"><img src="https://techoryze.herokuapp.com/static/images/logo/logo.png" width="130" class=""></a>
+<a href="/" class="d-block"><img src="http://127.0.0.1:8000/static/images/logo/logo.png" width="130" class=""></a>
 </div>
 <div class="col-lg-10 col-md-12 col-sm-12 col-12 p-0 pull-left">
   <button class="navbar-toggler btn btn-dark pull-right margin-topNeg31px collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,8 +103,8 @@
         <div class="col-lg-8 col-md-8 col-sm-12 col-12 pull-left mt-5">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0">
 
-        <video class="col p-0" controls poster="https://techoryze.herokuapp.com/static/images/bg/poster.png" preload="auto">
-            <source src="https://techoryze.herokuapp.com/media/cds.mp4" type="video/mp4">
+        <video class="col p-0" controls poster="http://127.0.0.1:8000/static/images/bg/poster.png" preload="auto">
+            <source src="http://127.0.0.1:8000/media/cds.mp4" type="video/mp4">
         </video>
 
         </div>
@@ -115,7 +115,7 @@
         <h5 class="colorgray">{{ course.course_title }}</h5>
         <p class="font-size13px pt-5">Lessons: 12<br>Duration: {{ course.course_duration }}</p>
         <div class="col p-0 mt-5">
-            <a href="https://techoryze.herokuapp.com/en/coursesvideo" class="d-block btn btn-dark colorOrange col-lg-6 col-md-8 col-sm-8 col-12 m-auto font-size14px">Start Course</a>
+            <a href="http://127.0.0.1:8000/en/coursesvideo" class="d-block btn btn-dark colorOrange col-lg-6 col-md-8 col-sm-8 col-12 m-auto font-size14px">Start Course</a>
         </div>
 
         </div>
@@ -148,7 +148,7 @@
 
         <div class="col-12 border-top1px font-size12px pt-3 pb-2 overflow-hidden">
         <h5 class="colorgray mb-3">Your Instructor</h5>
-        <img src="https://techoryze.herokuapp.com/media/instructorIcon1.png" class="pull-left mt-3 mr-3" width="100">
+        <img src="http://127.0.0.1:8000/media/{{ course.course_author_image }}" class="pull-left mt-3 mr-3" width="100">
         <h5 class="colorGreen">{{ course.course_author_name }}</h5>
         <p>MOS Course Editor | Techoryze</p>
         <p class="col-lg-6 col-md-6 col-sm-12 col-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -183,7 +183,7 @@
 <div class="container">
 <div class="col border-top1px mt-3">
 <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-0 pull-left mt-4">
-<a href="/"><img src="https://techoryze.herokuapp.com/static/images/logo/logo.png" width="135" class=""></a>
+<a href="/"><img src="http://127.0.0.1:8000/static/images/logo/logo.png" width="135" class=""></a>
 <p class="pt-2">Lorem Ipsum is simply dummy text of the
 printing and typesetting industry. Lorem
 Ipsum has been the industry's standard
@@ -240,8 +240,8 @@ dummy text.</p>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://techoryze.herokuapp.com/en/js/slim.min.js"></script>
-<script src="https://techoryze.herokuapp.com/en/js/popper.min.js"></script>
-<script src="https://techoryze.herokuapp.com/en/js/bootstrap.js"></script>
+<script src="http://127.0.0.1:8000/en/js/slim.min.js"></script>
+<script src="http://127.0.0.1:8000/en/js/popper.min.js"></script>
+<script src="http://127.0.0.1:8000/en/js/bootstrap.js"></script>
 </body>
 </html>
